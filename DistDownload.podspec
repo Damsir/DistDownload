@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = "DistDownload", "DistDownload/**/*.{h,m}"
   # s.public_header_files = "DistPopView/*.h"
-  s.resources = 'DistDownload/Resource/*.{bundle}'
+  #s.resources = 'DistDownload/Resource/*.{bundle}'
   s.framework = 'UIKit'
   s.ios.deployment_target = "8.0"
   s.dependency "ASIHTTPRequest" , '~> 1.8.2'
