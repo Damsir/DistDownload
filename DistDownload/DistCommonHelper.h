@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 // 下载文件的总文件夹
-#define BASE       @"ZFDownLoad"
+#define BASE       @"DistDownLoad"
 // 完整文件路径
 #define TARGET     @"CacheList"
 // 临时文件夹名称
@@ -20,15 +20,15 @@
 // 临时文件夹的路径
 #define TEMP_FOLDER          [NSString stringWithFormat:@"%@/%@/%@",CACHES_DIRECTORY,BASE,TEMP]
 // 临时文件的路径
-#define TEMP_PATH(name)      [NSString stringWithFormat:@"%@/%@",[ZFCommonHelper createFolder:TEMP_FOLDER],name]
+#define TEMP_PATH(name)      [NSString stringWithFormat:@"%@/%@",[DistCommonHelper createFolder:TEMP_FOLDER],name]
 // 下载文件夹路径
 #define FILE_FOLDER          [NSString stringWithFormat:@"%@/%@/%@",CACHES_DIRECTORY,BASE,TARGET]
 // 下载文件的路径
-#define FILE_PATH(name)      [NSString stringWithFormat:@"%@/%@",[ZFCommonHelper createFolder:FILE_FOLDER],name]
+#define FILE_PATH(name)      [NSString stringWithFormat:@"%@/%@",[DistCommonHelper createFolder:FILE_FOLDER],name]
 // 文件信息的Plist路径
 #define PLIST_PATH           [NSString stringWithFormat:@"%@/%@/FinishedPlist.plist",CACHES_DIRECTORY,BASE]
 
-@interface ZFCommonHelper : NSObject
+@interface DistCommonHelper : NSObject
 
 /** 将文件大小转化成M单位或者B单位 */
 + (NSString *)getFileSizeString:(NSString *)size;

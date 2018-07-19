@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger,ZFDownLoadState) {
-    ZFDownloading,      //下载中
-    ZFWillDownload,     //等待下载
-    ZFStopDownload      //停止下载
+typedef NS_ENUM(NSInteger,DistDownLoadState) {
+    DistDownloading,      //下载中
+    DistWillDownload,     //等待下载
+    DistStopDownload      //停止下载
 };
 
-@interface ZFFileModel : NSObject
+@interface DistFileModel : NSObject
 
 /** 文件名 */
 @property (nonatomic, copy) NSString        *fileName;
@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger,ZFDownLoadState) {
  *可以主动切换下载状态
  *所有任务以添加时间排序。
  */
-@property (nonatomic, assign) ZFDownLoadState downloadState;
+@property (nonatomic, assign) DistDownLoadState downloadState;
 /** 是否下载出错 */
 @property (nonatomic, assign) BOOL            error;
 /** md5 */

@@ -7,19 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZFCommonHelper.h"
-#import "ZFDownloadDelegate.h"
-#import "ZFFileModel.h"
-#import "ZFHttpRequest.h"
+#import "DistCommonHelper.h"
+#import "DistDownloadDelegate.h"
+#import "DistFileModel.h"
+#import "DistHttpRequest.h"
 
 #define kMaxRequestCount  @"kMaxRequestCount"
 
-@interface ZFDownloadManager : NSObject<ZFHttpRequestDelegate>
+@interface DistDownloadManager : NSObject<DistHttpRequestDelegate>
 
 /** 获得下载事件的vc，用在比如多选图片后批量下载的情况，这时需配合 allowNextRequest 协议方法使用 */
-@property (nonatomic, weak  ) id<ZFDownloadDelegate> VCdelegate;
+@property (nonatomic, weak  ) id<DistDownloadDelegate> VCdelegate;
 /** 下载列表delegate */
-@property (nonatomic, weak  ) id<ZFDownloadDelegate> downloadDelegate;
+@property (nonatomic, weak  ) id<DistDownloadDelegate> downloadDelegate;
 /** 设置最大的并发下载个数 */
 @property (nonatomic, assign) NSInteger              maxCount;
 /** 已下载完成的文件列表（文件对象） */
@@ -29,10 +29,10 @@
 /** 未下载完成的临时文件数组（文件对象) */
 @property (atomic, strong, readonly) NSMutableArray  *filelist;
 /** 下载文件的模型 */
-@property (nonatomic, strong, readonly) ZFFileModel  *fileInfo;
+@property (nonatomic, strong, readonly) DistFileModel  *fileInfo;
 
 /** 单例 */
-+ (ZFDownloadManager *)sharedDownloadManager;
++ (DistDownloadManager *)sharedDownloadManager;
 /**
  * 清除所有正在下载的请求
  */
@@ -44,15 +44,15 @@
 /**
  * 恢复下载
  */
-- (void)resumeRequest:(ZFHttpRequest *)request;
+- (void)resumeRequest:(DistHttpRequest *)request;
 /**
  * 删除这个下载请求
  */
-- (void)deleteRequest:(ZFHttpRequest *)request;
+- (void)deleteRequest:(DistHttpRequest *)request;
 /**
  * 停止这个下载请求
  */
-- (void)stopRequest:(ZFHttpRequest *)request;
+- (void)stopRequest:(DistHttpRequest *)request;
 /**
  * 保存下载完成的文件信息到plist
  */
@@ -60,7 +60,7 @@
 /**
  * 删除某一个下载完成的文件
  */
-- (void)deleteFinishFile:(ZFFileModel *)selectFile;
+- (void)deleteFinishFile:(DistFileModel *)selectFile;
 /**
  * 下载视频时候调用
  */

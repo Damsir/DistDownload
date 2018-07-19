@@ -8,13 +8,13 @@
 
 #import "DistHttpRequest.h"
 
-@interface ZFHttpRequest()<ASIHTTPRequestDelegate,ASIProgressDelegate>
+@interface DistHttpRequest()<ASIHTTPRequestDelegate,ASIProgressDelegate>
 {
     ASIHTTPRequest *_realRequest;
 }
 @end
 
-@implementation ZFHttpRequest
+@implementation DistHttpRequest
 
 - (instancetype)initWithURL:(NSURL*)url
 {
@@ -100,7 +100,7 @@
     }
 }
 
-- (void)request:(ZFHttpRequest *)request didReceiveBytes:(long long)bytes
+- (void)request:(DistHttpRequest *)request didReceiveBytes:(long long)bytes
 {
     if (self.delegate&&[self.delegate respondsToSelector:@selector(request:didReceiveBytes:)]) {
         [self.delegate request:self didReceiveBytes:bytes];
@@ -126,7 +126,7 @@
     }
 }
 
-// 全部暂停的时候  request并不retain它们的代理，所以已经释放了代理 而之后request完成了，这将会引起崩溃。大多数情况下，如果你的代理即将被释放，你一定也希望取消所有request，因为你已经不再关心它们的返回情况了，所以得在ZFHttpRequest这个类的dealloc里面加上一个[request clearDelegatesAndCancel];
+// 全部暂停的时候  request并不retain它们的代理，所以已经释放了代理 而之后request完成了，这将会引起崩溃。大多数情况下，如果你的代理即将被释放，你一定也希望取消所有request，因为你已经不再关心它们的返回情况了，所以得在DistHttpRequest这个类的dealloc里面加上一个[request clearDelegatesAndCancel];
 // 代理类的dealloc函数
 - (void)dealloc
 {

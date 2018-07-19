@@ -9,22 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <ASIHTTPRequest/ASIHTTPRequest.h>
 
-@class ZFHttpRequest;
+@class DistHttpRequest;
 
-@protocol ZFHttpRequestDelegate <NSObject>
+@protocol DistHttpRequestDelegate <NSObject>
 
-- (void)requestFailed:(ZFHttpRequest *)request;
-- (void)requestStarted:(ZFHttpRequest *)request;
-- (void)request:(ZFHttpRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders;
-- (void)request:(ZFHttpRequest *)request didReceiveBytes:(long long)bytes;
-- (void)requestFinished:(ZFHttpRequest *)request;
+- (void)requestFailed:(DistHttpRequest *)request;
+- (void)requestStarted:(DistHttpRequest *)request;
+- (void)request:(DistHttpRequest *)request didReceiveResponseHeaders:(NSDictionary *)responseHeaders;
+- (void)request:(DistHttpRequest *)request didReceiveBytes:(long long)bytes;
+- (void)requestFinished:(DistHttpRequest *)request;
 @optional
-- (void)request:(ZFHttpRequest *)request willRedirectToURL:(NSURL *)newURL;
+- (void)request:(DistHttpRequest *)request willRedirectToURL:(NSURL *)newURL;
 
 @end
 
-@interface ZFHttpRequest : NSObject
-@property (weak, nonatomic  ) id<ZFHttpRequestDelegate> delegate;
+@interface DistHttpRequest : NSObject
+@property (weak, nonatomic  ) id<DistHttpRequestDelegate> delegate;
 @property (strong, nonatomic) NSURL                  *url;
 @property (strong, nonatomic) NSURL                  *originalURL;
 @property (strong, nonatomic) NSDictionary           *userInfo;

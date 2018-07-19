@@ -6,10 +6,10 @@
 //  Copyright © 2018年 Dist. All rights reserved.
 //
 
-#import "ZFCommonHelper.h"
-#import "ZFFileModel.h"
+#import "DistCommonHelper.h"
+#import "DistFileModel.h"
 
-@implementation ZFCommonHelper
+@implementation DistCommonHelper
 
 + (NSString *)getFileSizeString:(NSString *)size {
     if([size floatValue]>=1024*1024)//大于1M，则转化成M单位的字符串
